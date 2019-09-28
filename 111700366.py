@@ -5,7 +5,7 @@ import json
 
 
 '''省市字典集'''
-dict={
+Dict={
     '北京':['北京'],
     '上海':['上海'],
     '天津':['天津'],
@@ -81,7 +81,7 @@ def matchaddress(address,name,phonenum,flag):
         province = province.group()
         state = province.rstrip("省").rstrip("自治区")
     else:
-        for state in dict:
+        for state in Dict:
             if (re.search(state, address) != None):
                 break
         length = len(state)
@@ -101,7 +101,7 @@ def matchaddress(address,name,phonenum,flag):
         city = city.group()
     else:
         try:
-            for d_city in dict[state]:
+            for d_city in Dict[state]:
                 if(re.search(d_city,address2)!=None):
                     break
         except KeyError:
@@ -167,8 +167,12 @@ def matchaddress(address,name,phonenum,flag):
     return result
 while (1):
     text = input()
-    if(text=="END"):
+    
+    try:
+        if(text=="END"):
             break
+    except EOFError:
+        break
     flag = re.search(r'^\d', text)
     text = re.sub('.!', '', text)
     name = dealname(text)
