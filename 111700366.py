@@ -165,10 +165,9 @@ def matchaddress(address,name,phonenum,flag):
         result = {'姓名': name.group(), '手机': phonenum.group(),
                   '地址': [province, city, region, county, road, tag, address7]}
     return result
-while (1):
-    text = input()
-    
+while (1):    
     try:
+        text = input()
         if(text=="END"):
             break
     except EOFError:
