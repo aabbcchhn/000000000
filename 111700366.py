@@ -151,7 +151,7 @@ while 1:
                 pos = now
                 add_len = len(x)
 
-        if (pos != 999 x):
+        if (pos != 999 ):
             street_num = msg[:pos + 1]
             msg = msg[pos + 1:]
         person['地址'].append(road)
